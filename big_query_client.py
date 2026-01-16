@@ -34,6 +34,7 @@ def query_handler(query: str):
         st.error("Please enter a query")
         return None
     df = run_query(query)
+    st.success("Query executed successfully")
     st.dataframe(df)
 
 
