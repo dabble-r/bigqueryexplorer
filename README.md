@@ -1,6 +1,4 @@
-# BigQuery SQL Explorer & Chart Builder
-
-# Big Query Client 2
+# Big Query Client Explorer
 
 A lightweight Streamlit application for exploring Google BigQuery datasets, running custom SQL queries, and visualizing query results with an interactive chart builder. The app emphasizes clarity, fast iteration, and a smooth workflow for both beginners and experienced developers.
 
