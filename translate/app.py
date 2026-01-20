@@ -195,7 +195,7 @@ def main():
 def init_state():
     defaults = {
         "HF_TOKEN": os.getenv("HF_TOKEN"),
-        "model_id": "Helsinki-NLP/opus-mt-fr-en",
+        "model_id": None,
         "client": None,
         "result": None,
         "params": {

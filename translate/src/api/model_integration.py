@@ -1,4 +1,6 @@
 import streamlit as st
+import time
+from datetime import datetime
 
 
 def get_state():
@@ -33,17 +35,30 @@ def chat_with_model(prompt, container):
         response_placeholder.info("🔄 Processing request...")
 
         # Hugging Face T5 call
-        result = client.translation(
-                prompt,
-                model=model_id,
-                src_lang=source_lang,
-                tgt_lang=target_lang
-            )
+        
 
+        current_datetime = datetime.now().time().strftime("%H:%M:%S")
+
+        if source_lang == "eng_Latn":
+            result = client.translation(
+                    prompt,
+                    model="Helsinki-NLP/opus-mt-tc-big-en-fr",
+                    src_lang=source_lang,
+                    tgt_lang=target_lang
+                )
+        elif source_lang == "fra_Latn":
+            result = client.translation(
+                    prompt,
+                    model="Helsinki-NLP/opus-mt-fr-en",
+                    src_lang=source_lang,
+                    tgt_lang=target_lang
+                )
 
         translation = result.translation_text.split()
         response_placeholder.markdown(" ".join(translation[1:]))
-        print("result:", translation)
+        print("result:", {"translation": translation, "time": current_datetime})
+       
+
         return translation
 
     except Exception as e:
