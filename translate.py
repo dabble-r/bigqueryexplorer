@@ -246,10 +246,6 @@ def main():
         )
         st.session_state.target_lang = target_lang
 
-        cultural_context = st.selectbox(
-            "Context", ["Formal", "Casual", "Business", "Youth Slang", "Poetic"]
-        )
-        st.session_state.cultural_context = cultural_context
 
     # Main container with border
     main_container = st.container(border=True)
